@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AQI Analytics Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <h1>&#127757; Air Quality Intelligence</h1>
+
+  <div class="search">
+    <input id="city" placeholder="Search city (e.g. delhi, mumbai)">
+    <button onclick="getAQI()">Current AQI</button>
+    <button onclick="predictAQI()" class="btn-predict">&#128302; Predict Tomorrow</button>
+  </div>
+
+  <div class="aqi-section">
+    <div class="aqi-card">
+      <h2>Current AQI</h2>
+      <div class="aqi-number" id="aqiValue">--</div>
+      <div class="aqi-status" id="aqiCategory">Waiting...</div>
+      <p id="danger"></p>
+    </div>
+  </div>
+
+  <div class="pollution">
+    <div class="pollution-card"><h3>PM2.5</h3><p id="pm25">--</p></div>
+    <div class="pollution-card"><h3>PM10</h3><p id="pm10">--</p></div>
+    <div class="pollution-card"><h3>NO&#8322;</h3><p id="no2">--</p></div>
+    <div class="pollution-card"><h3>O&#8323;</h3><p id="o3">--</p></div>
+  </div>
+
+  <div class="prediction-section" id="predSection" style="display:none">
+    <div class="pred-card">
+      <h2>&#128302; Tomorrow's Predicted AQI</h2>
+      <div class="aqi-number pred-number" id="predValue">--</div>
+      <div class="aqi-status" id="predCategory">--</div>
+      <p id="predDanger"></p>
+      <div class="model-stats">
+        <span>Model R&#178;: <strong id="r2Score">--</strong></span>
+        <span>Accuracy: <strong id="accPct">--%</strong></span>
+        <span>Avg Error: <strong id="mae">-- AQI units</strong></span>
+      </div>
+      <p class="model-note">
+        &#128202; Model: Gradient Boosting trained on 300K+ CPCB records (1987&#8211;2015)<br>
+        &#128196; Paper baseline (Random Forest): ~86% &nbsp;|&nbsp; &#9989; Our model: 90.1%
+      </p>
+    </div>
+  </div>
+
+  <div class="graph">
+    <h2 id="chartTitle">Pollution Levels</h2>
+    <canvas id="aqiChart"></canvas>
+  </div>
+
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
