@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
-AQI_TOKEN  = "0a1b574989451972b917d3fd0aa479da26f2fc6c"
+AQI_TOKEN = os.environ.get("WAQI_API_KEY", "")
 MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model.pkl")
 
 with open(MODEL_PATH, "rb") as f:
