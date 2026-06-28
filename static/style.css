@@ -1,0 +1,71 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 24px; }
+
+h1 { font-size: 2rem; margin-bottom: 20px; color: #1a1a2e; }
+
+.search { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+.search input {
+  flex: 1; padding: 12px 16px; border: 2px solid #ddd;
+  border-radius: 8px; font-size: 1rem; min-width: 200px;
+}
+.search button {
+  padding: 12px 22px; background: #4a90e2; color: white;
+  border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;
+  transition: background 0.2s;
+}
+.search button:hover { background: #357abd; }
+.btn-predict { background: #8e44ad !important; }
+.btn-predict:hover { background: #6c3483 !important; }
+
+.aqi-section { margin-bottom: 20px; }
+.aqi-card {
+  background: white; border-radius: 12px; padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center;
+  transition: background 0.4s;
+}
+.aqi-number { font-size: 4rem; font-weight: 700; margin: 10px 0; }
+.aqi-status { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
+
+.prediction-section { margin-bottom: 20px; }
+.pred-card {
+  background: white; border-radius: 12px; padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center;
+  transition: background 0.4s;
+}
+.pred-number { font-size: 3.5rem; }
+
+.model-stats {
+  display: flex; justify-content: center; gap: 24px;
+  flex-wrap: wrap; margin: 14px 0; font-size: 0.95rem; color: #555;
+}
+.model-note {
+  font-size: 0.85rem; color: #777; margin-top: 10px; line-height: 1.6;
+}
+
+.good      { background: #d4edda !important; }
+.moderate  { background: #fff3cd !important; }
+.sensitive { background: #ffe5b4 !important; }
+.unhealthy { background: #f8d7da !important; }
+.very-unhealthy { background: #e2b0ff !important; }
+.hazardous { background: #f5b7b1 !important; }
+
+.pollution { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 20px; }
+.pollution-card {
+  background: white; border-radius: 10px; padding: 18px;
+  text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.pollution-card h3 { font-size: 0.9rem; color: #888; margin-bottom: 8px; }
+.pollution-card p  { font-size: 1.5rem; font-weight: 700; color: #1a1a2e; }
+
+.graph {
+  background: white; border-radius: 12px; padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.graph h2 { margin-bottom: 16px; font-size: 1.1rem; color: #555; }
+
+@media (max-width: 600px) {
+  .pollution { grid-template-columns: repeat(2,1fr); }
+  .aqi-number { font-size: 3rem; }
+}
